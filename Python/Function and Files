@@ -1,0 +1,93 @@
+
+
+while True:
+	try:
+		x = input("Enter the first number - >> ")
+		print()
+		y = input("Enter the second number - >> ")
+		result = int(x) /int(y)
+		print(f"\nThe result is {result}")
+	except (ZeroDivisionError, ValueError) as e:
+		print(f"This {e} is not an integer\n")
+		print("\nRe-enter your input")
+	else:
+		break
+		
+#with open("/storage/emulated/0/project/newfile.txt") as text:
+#		for line in text:
+#			print(line.rstrip())
+#print()
+#with open("/storage/emulated/0/newfile.txt","a") as new:
+#	new.write("I lost all the poems I have written\n May be someday, I can still come up with something like it again")
+	
+#with open("/storage/emulated/0/newfile.txt") as file:
+#	print(file.read())
+
+	
+#import wget
+
+#wget.download("https://gutenberg.org/files/844/844-0.txt", "/storage/emulated/0/being earnest1.txt")
+
+def count_word(x):
+	try:
+		with open(x) as file:
+			new = len(file.read().split())
+			
+	except FileNotFoundError:
+			print(f"Sorry, the file {x} does not exist.")
+	else:
+		print(f"There are {new} words in {x}")
+		
+#for file in ["alice.txt","newfile.txt","being earnest.txt"]:
+#	count_word(file)
+	
+#with open("/storage/emulated/0/alice.txt") as f:
+#	a = f.read().lower().count("alice ")
+#	b = f.read().replace("Alice", "Aderoju")
+#	b = b.replace("her","his")
+#	b = b.replace("she","he")
+
+#print(b)
+#print(a)
+	
+import json
+
+data = [1,2,3]
+
+file = json.dumps(data)
+
+#extension is not important
+old = json.loads(file)
+#print(old)
+
+import pprint
+
+message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+
+count = {}
+
+for character in message:
+	count.setdefault(character, 0)
+
+	count[character] = count[character] + 1
+	
+#pprint.pprint(count)
+
+from string import Template
+a = Template('A $thing must never $action.')
+
+d = {"thing":"Gentleman", "action":"fight"}
+
+#print(a.substitute(d))
+
+#from pandas import read_csv
+#data = read_csv("/storage/emulated/0/UCDownloads/winequalityN.csv")
+
+#for file_index, start_row in enumerate(range(0, len(data), 500)):
+#	data.iloc[start_row:min(start_row+500, len(data))].to_csv(f"split_file_{file_index}.csv", index=False)
+
+import pandas as pd
+
+data = pd.DataFrame(zip([2,5, 6,7],[3,None, 89,2]),columns=list("ab"), index=[["ade", "ade","roju", "roju"], ["goal", "age", "goal", "age"]])
+
+print(type(data.unstack().stack().to_numpy()))
